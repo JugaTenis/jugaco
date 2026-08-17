@@ -35,15 +35,10 @@
       text-align: center;
       padding: 3rem 1.5rem 2.25rem;
     }
-    .brand {
-      font-size: clamp(1.9rem, 5vw, 3rem);
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, var(--tenis) 0%, var(--tenis) 42%, var(--padel) 58%, var(--padel) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .brand img {
+      width: min(480px, 84vw);
+      height: auto;
+      display: inline-block;
     }
     .tagline {
       margin-top: 0.6rem;
@@ -152,7 +147,7 @@
 </head>
 <body>
   <header>
-    <h1 class="brand">Juga Company</h1>
+    <h1 class="brand"><img src="assets/logo-jugacompany.svg" alt="Juga Company" /></h1>
     <p class="tagline">El juego nos une&nbsp;·&nbsp;Tecnología para la comunidad amateur de tenis y pádel</p>
   </header>
 
