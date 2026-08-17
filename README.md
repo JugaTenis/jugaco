@@ -22,7 +22,9 @@ the brand marks change.
 ## Logo
 
 `assets/logo-jugacompany.svg` reuses the exact "JUGÁ" glyph outlines from the
-JugáTenis wordmark; "COMPANY" is outlined from Anton (SIL OFL), scaled to the
-wordmark's cap height and skewed to its measured 10° slant. Regenerate with
-`tools/make-logo.js` (needs `opentype.js`, the Anton TTF as `anton.ttf`, and the
-tenis wordmark as `wordmark.svg` in the working directory).
+JugáTenis wordmark; "COMPANY" is set in dark gray, outlined from Bebas Neue
+(SIL OFL) — whose stem weight measures identical to the brand typeface —
+scaled to the wordmark's cap height and skewed to its measured 10° slant.
+Regenerate with `tools/make-logo.js` (needs `opentype.js`, the Bebas Neue TTF
+as `bebas.ttf`, and the tenis wordmark as `wordmark.svg` in the working
+directory).
