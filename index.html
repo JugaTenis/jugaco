@@ -51,6 +51,11 @@
       flex: 1;
       display: flex;
       align-items: stretch;
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
     }
     .half {
       flex: 1;
@@ -61,6 +66,7 @@
       text-align: center;
       gap: 1.5rem;
       padding: 3.5rem 2rem 4rem;
+      border-radius: 28px;
       transition: background-color 0.25s ease;
     }
     .half.tenis { background: var(--tenis-soft); }
@@ -140,7 +146,7 @@
     footer a { color: inherit; }
 
     @media (max-width: 720px) {
-      main { flex-direction: column; }
+      main { flex-direction: column; padding: 0 1rem 1rem; gap: 1rem; }
       .half { padding: 3rem 1.5rem; }
     }
   </style>
