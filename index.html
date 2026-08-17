@@ -35,18 +35,23 @@
       text-align: center;
       padding: 3rem 1.5rem 2.25rem;
     }
+    /* Iso/text proportions copied from the app lockups (logo+iso.svg, in
+       wordmark units of 1440): iso height 338.9, gap to the J 3.8, iso
+       center 15.45 above the text block center. */
     .brand {
+      --wm-w: min(460px, 70vw);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: clamp(10px, 1.8vw, 20px);
+      gap: calc(var(--wm-w) * 0.00264);
     }
     .brand .mark {
-      height: clamp(54px, 9.5vw, 100px);
+      height: calc(var(--wm-w) * 0.2354);
       width: auto;
+      transform: translateY(calc(var(--wm-w) * -0.01073));
     }
     .brand .wordmark {
-      width: min(460px, 70vw);
+      width: var(--wm-w);
       height: auto;
     }
     .tagline {
