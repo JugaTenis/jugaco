@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jugá Company — El juego nos une</title>
   <meta name="description" content="Jugá Company es la casa de JugáTenis y JugáPádel: tecnología que conecta a la comunidad amateur de tenis y pádel." />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="assets/logo-icon.png" />
   <meta property="og:title" content="Jugá Company" />
   <meta property="og:description" content="La casa de JugáTenis y JugáPádel. El juego nos une." />
   <meta property="og:url" content="https://jugaco.com" />
@@ -35,10 +35,19 @@
       text-align: center;
       padding: 3rem 1.5rem 2.25rem;
     }
-    .brand img {
-      width: min(480px, 84vw);
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(10px, 1.8vw, 20px);
+    }
+    .brand .mark {
+      height: clamp(54px, 9.5vw, 100px);
+      width: auto;
+    }
+    .brand .wordmark {
+      width: min(460px, 70vw);
       height: auto;
-      display: inline-block;
     }
     .tagline {
       margin-top: 0.6rem;
@@ -166,7 +175,10 @@
 </head>
 <body>
   <header>
-    <h1 class="brand"><img src="assets/logo-jugacompany.svg" alt="Jugá Company" /></h1>
+    <h1 class="brand">
+      <img class="mark" src="assets/logo-icon.png" alt="" aria-hidden="true" />
+      <img class="wordmark" src="assets/logo-jugacompany.svg" alt="Jugá Company" />
+    </h1>
     <p class="tagline">El juego nos une&nbsp;·&nbsp;Tecnología para la comunidad amateur de tenis y pádel</p>
   </header>
 
