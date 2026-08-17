@@ -31,28 +31,23 @@ function transform(path, dx) {
   return path;
 }
 
-const comRaw = rawPath("COM", 0);
-const panyRaw = rawPath("PANY", font.getAdvanceWidth("COM", SIZE, { kerning: true }));
-
 // First pass with dx=0 to find where the skewed C's left edge lands, then shift
-const probe = transform(rawPath("COM", 0), 0);
+const probe = transform(rawPath("COMPANY", 0), 0);
 const dx = START_X - probe.getBoundingBox().x1;
 
-const com = transform(comRaw, dx);
-const pany = transform(panyRaw, dx);
+const company = transform(rawPath("COMPANY", 0), dx);
 
 // Read the JUGÁ paths straight from the wordmark SVG (black fills)
 const wordmark = fs.readFileSync("wordmark.svg", "utf8");
 const black = [...wordmark.matchAll(/<path d="([^"]+)" fill="black"\/>/g)].map((m) => m[1]);
 if (black.length !== 5) throw new Error(`expected 5 JUGÁ paths, got ${black.length}`);
 
-const maxX = pany.getBoundingBox().x2;
+const maxX = company.getBoundingBox().x2;
 const width = Math.ceil(maxX + 2);
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} 262" fill="none" role="img" aria-label="Jugá Company">
 ${black.map((d) => `<path d="${d}" fill="#000000"/>`).join("\n")}
-<path d="${com.toPathData(2)}" fill="#FA743C"/>
-<path d="${pany.toPathData(2)}" fill="#168AD8"/>
+<path d="${company.toPathData(2)}" fill="#5C5C5C"/>
 </svg>`;
 
 fs.writeFileSync("logo-jugacompany.svg", svg);
