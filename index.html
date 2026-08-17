@@ -58,6 +58,8 @@
       padding: 0 1.5rem 1.5rem;
     }
     .half {
+      position: relative;
+      overflow: hidden;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -69,6 +71,17 @@
       border-radius: 28px;
       transition: background-color 0.25s ease;
     }
+    .half > :not(.court) { position: relative; z-index: 1; }
+    .court {
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+      height: 96%;
+      top: 2%;
+      left: 50%;
+    }
+    .half.tenis .court { transform: translateX(-50%) rotate(9deg); }
+    .half.padel .court { transform: translateX(-50%) rotate(-9deg); }
     .half.tenis { background: var(--tenis-soft); }
     .half.padel { background: var(--padel-soft); }
 
@@ -159,6 +172,17 @@
 
   <main>
     <section class="half tenis" aria-label="JugáTenis">
+      <svg class="court" viewBox="-20 -20 400 820" fill="none" stroke="#FA743C" stroke-opacity="0.14" stroke-width="5" aria-hidden="true">
+        <rect x="0" y="0" width="360" height="780" rx="2"/>
+        <line x1="45" y1="0" x2="45" y2="780"/>
+        <line x1="315" y1="0" x2="315" y2="780"/>
+        <line x1="45" y1="180" x2="315" y2="180"/>
+        <line x1="45" y1="600" x2="315" y2="600"/>
+        <line x1="180" y1="180" x2="180" y2="600"/>
+        <line x1="0" y1="390" x2="360" y2="390" stroke-width="7"/>
+        <line x1="180" y1="0" x2="180" y2="14"/>
+        <line x1="180" y1="766" x2="180" y2="780"/>
+      </svg>
       <img class="logo" src="assets/logo-jugatenis.svg" alt="JugáTenis" />
       <p class="pitch">La comunidad de tenis amateur más activa. Encontrá rivales de tu nivel, cargá tus partidos y escalá en el ranking.</p>
       <div class="actions">
@@ -177,6 +201,13 @@
     </section>
 
     <section class="half padel" aria-label="JugáPádel">
+      <svg class="court" viewBox="-20 -20 240 440" fill="none" stroke="#168AD8" stroke-opacity="0.14" stroke-width="3" aria-hidden="true">
+        <rect x="0" y="0" width="200" height="400" rx="2"/>
+        <line x1="0" y1="130.5" x2="200" y2="130.5"/>
+        <line x1="0" y1="269.5" x2="200" y2="269.5"/>
+        <line x1="100" y1="130.5" x2="100" y2="269.5"/>
+        <line x1="0" y1="200" x2="200" y2="200" stroke-width="4.5"/>
+      </svg>
       <img class="logo" src="assets/logo-jugapadel.svg" alt="JugáPádel" />
       <p class="pitch">Ranking, encuentros y comunidad para el pádel amateur. Sumate desde cualquier dispositivo.</p>
       <div class="actions">
