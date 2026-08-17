@@ -23,6 +23,6 @@ the brand marks change.
 
 `assets/logo-jugacompany.svg` reuses the exact "JUGÁ" glyph outlines from the
 JugáTenis wordmark; "COMPANY" is outlined from Anton (SIL OFL), scaled to the
-wordmark's cap height and skewed to its measured 10° slant. Regeneration
-script: see the `make-logo2.js` gist in the PR/commit history context (it needs
-`opentype.js` + Anton TTF).
+wordmark's cap height and skewed to its measured 10° slant. Regenerate with
+`tools/make-logo.js` (needs `opentype.js`, the Anton TTF as `anton.ttf`, and the
+tenis wordmark as `wordmark.svg` in the working directory).
