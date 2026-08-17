@@ -1,6 +1,6 @@
-# jugaco.com — Juga Company
+# jugaco.com — Jugá Company
 
-Umbrella-brand landing page for **Juga Company**, the home of
+Umbrella-brand landing page for **Jugá Company**, the home of
 [JugáTenis](https://www.jugatenis.com) and [JugáPádel](https://www.jugapadel.app).
 
 Static site (single `index.html`, no build step) deployed with **GitHub Pages**
@@ -18,3 +18,11 @@ Point the domain at GitHub Pages:
 Logos are copies of `apps/web/public/assets/logo+iso*.svg` from the
 [jugatenis](https://github.com/JugaTenis/jugatenis) monorepo — re-copy them if
 the brand marks change.
+
+## Logo
+
+`assets/logo-jugacompany.svg` reuses the exact "JUGÁ" glyph outlines from the
+JugáTenis wordmark; "COMPANY" is outlined from Anton (SIL OFL), scaled to the
+wordmark's cap height and skewed to its measured 10° slant. Regeneration
+script: see the `make-logo2.js` gist in the PR/commit history context (it needs
+`opentype.js` + Anton TTF).
