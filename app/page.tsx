@@ -42,9 +42,10 @@ function BrandStats({ stats }: { stats: Stats }) {
     [stats.friendshipCount, "amistades"],
     [stats.matchCount, "encuentros"],
   ] as const;
+  const nonZero = items.filter(([value]) => value > 0);
   return (
     <dl className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-      {items.map(([value, label]) => (
+      {nonZero.map(([value, label]) => (
         <div key={label} className="flex items-baseline gap-1.5">
           <dd className="text-jt-h3 font-semibold text-jt-brand-700"><AnimatedNumber value={value} /></dd>
           <dt className="text-jt-body-sm text-jt-ink-70">{label}</dt>
