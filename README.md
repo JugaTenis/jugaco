@@ -1,30 +1,47 @@
-# jugaco.com — Jugá Company
+# jugacompany.com — Jugá Company
 
-Umbrella-brand landing page for **Jugá Company**, the home of
+Umbrella-brand site for **Jugá Company**, the home of
 [JugáTenis](https://www.jugatenis.com) and [JugáPádel](https://www.jugapadel.app).
 
-Static site (single `index.html`, no build step) deployed with **GitHub Pages**
-from the `main` branch root. The custom domain is set via the `CNAME` file.
+Next.js (App Router, Tailwind v4) using the design tokens of the
+[plataforma](https://github.com/JugaCompany/plataforma) monorepo
+(`app/globals.css` mirrors its `jt-*` tokens; the JugáPádel palette applies
+under `[data-sport="padel"]`).
 
-## DNS setup for jugaco.com
+## Live stats
 
-Point the domain at GitHub Pages:
+The home page shows the community impact (players, friendships, matches,
+clubs, cities). Numbers come from the platform's public `/api/stats` on each
+brand domain (`lib/stats.ts`), fetched server-side with ISR every 5 minutes.
+If either endpoint fails the stats section is hidden instead of showing stale
+placeholders.
 
-- Apex `jugaco.com` → `A` records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-- `www.jugaco.com` → `CNAME` record: `jugatenis.github.io`
+## Develop
+
+```sh
+pnpm install
+pnpm dev      # http://localhost:3000
+pnpm build && pnpm start
+```
+
+## Deploy (Vercel)
+
+Project `jugaco` in the JugáCompany team, linked to this repo, production
+branch `main`. Vercel auto-detects Next.js — no build settings or env vars
+needed.
+
+DNS for `jugacompany.com` (Spaceship):
+
+- Apex `jugacompany.com` → `A` record `76.76.21.21`
+- `www.jugacompany.com` → `CNAME` `cname.vercel-dns.com`
+
+Add both domains to the Vercel project and redirect `www` to the apex.
+Disable GitHub Pages in the repo settings once DNS points to Vercel.
 
 ## Assets
 
-Logos are copies of `apps/web/public/assets/logo+iso*.svg` from the
-[jugatenis](https://github.com/JugaTenis/jugatenis) monorepo — re-copy them if
-the brand marks change.
-
-## Logo
-
-`assets/logo-jugacompany.svg` reuses the exact "JUGÁ" glyph outlines from the
-JugáTenis wordmark; "COMPANY" is set in dark gray, outlined from Bebas Neue
-(SIL OFL) — whose stem weight measures identical to the brand typeface —
-scaled to the wordmark's cap height and skewed to its measured 10° slant.
-Regenerate with `tools/make-logo.js` (needs `opentype.js`, the Bebas Neue TTF
-as `bebas.ttf`, and the tenis wordmark as `wordmark.svg` in the working
-directory).
+Brand logos live in `public/assets/` and are copies of
+`apps/web/public/assets/logo+iso*.svg` from the plataforma monorepo — re-copy
+them if the brand marks change. `tools/make-logo.js` regenerates the
+JugáCompany wordmark (needs `opentype.js`, the Bebas Neue TTF as `bebas.ttf`,
+and the tenis wordmark as `wordmark.svg` in the working directory).
