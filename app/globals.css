@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+/* Design tokens mirrored from plataforma (apps/web/app/globals.css).
+ * Brand axis is themed per sport: tennis orange on :root, padel blue under
+ * [data-sport="padel"] so a subtree (the JugáPádel card) can switch palette. */
+:root {
+  --jt-bg: #f5f2ec;
+  --jt-surface: #ffffff;
+  --jt-surface-alt: #faf7f0;
+  --jt-ink: #1a2420;
+  --jt-ink-70: rgba(26, 36, 32, 0.7);
+  --jt-ink-50: rgba(26, 36, 32, 0.5);
+  --jt-ink-30: rgba(26, 36, 32, 0.3);
+  --jt-ink-10: rgba(26, 36, 32, 0.1);
+  --jt-ink-06: rgba(26, 36, 32, 0.06);
+
+  --jt-brand-50: #fff1e7;
+  --jt-brand-100: #ffdfc2;
+  --jt-brand-200: #ffbe94;
+  --jt-brand-300: #fe9d63;
+  --jt-brand-500: #fa743c;
+  --jt-brand-600: #e55a1a;
+  --jt-brand-700: #c24910;
+  --jt-brand-800: #9a3a0f;
+  --jt-brand-900: #722707;
+  --jt-brand-hover: #e55a1a;
+  --jt-brand-ink: #ffffff;
+
+  --jt-neutral-0: #ffffff;
+  --jt-neutral-50: #faf9f5;
+  --jt-neutral-100: #f3f0e7;
+  --jt-neutral-200: #e8e3d3;
+  --jt-neutral-300: #d4cebd;
+  --jt-neutral-400: #aaa490;
+  --jt-neutral-500: #807a68;
+  --jt-neutral-600: #5a554a;
+  --jt-neutral-700: #3e3a32;
+  --jt-neutral-800: #25231f;
+  --jt-neutral-900: #14140f;
+
+  --jt-shadow-1: 0 1px 2px rgba(20, 20, 15, 0.04), 0 1px 1px rgba(20, 20, 15, 0.03);
+  --jt-shadow-2: 0 1px 2px rgba(20, 20, 15, 0.05), 0 4px 12px -4px rgba(20, 20, 15, 0.08);
+  --jt-shadow-3: 0 4px 8px -2px rgba(20, 20, 15, 0.06), 0 12px 24px -8px rgba(20, 20, 15, 0.12);
+}
+
+[data-sport="padel"] {
+  --jt-brand-50: #e7f3fc;
+  --jt-brand-100: #c2e0f7;
+  --jt-brand-200: #94cbf1;
+  --jt-brand-300: #5fb0e8;
+  --jt-brand-500: #168ad8;
+  --jt-brand-600: #1277bc;
+  --jt-brand-700: #0e6199;
+  --jt-brand-800: #0b4e7c;
+  --jt-brand-900: #08395a;
+  --jt-brand-hover: #1277bc;
+}
+
+@theme inline {
+  --font-sans: var(--font-roboto-flex), system-ui, sans-serif;
+
+  --color-jt-bg: var(--jt-bg);
+  --color-jt-surface: var(--jt-surface);
+  --color-jt-surface-alt: var(--jt-surface-alt);
+  --color-jt-ink: var(--jt-ink);
+  --color-jt-ink-70: var(--jt-ink-70);
+  --color-jt-ink-50: var(--jt-ink-50);
+  --color-jt-ink-30: var(--jt-ink-30);
+  --color-jt-ink-10: var(--jt-ink-10);
+  --color-jt-ink-06: var(--jt-ink-06);
+
+  --color-jt-brand-50: var(--jt-brand-50);
+  --color-jt-brand-100: var(--jt-brand-100);
+  --color-jt-brand-200: var(--jt-brand-200);
+  --color-jt-brand-300: var(--jt-brand-300);
+  --color-jt-brand-500: var(--jt-brand-500);
+  --color-jt-brand-600: var(--jt-brand-600);
+  --color-jt-brand-700: var(--jt-brand-700);
+  --color-jt-brand-800: var(--jt-brand-800);
+  --color-jt-brand-900: var(--jt-brand-900);
+  --color-jt-brand-hover: var(--jt-brand-hover);
+  --color-jt-brand-ink: var(--jt-brand-ink);
+
+  --color-jt-neutral-0: var(--jt-neutral-0);
+  --color-jt-neutral-50: var(--jt-neutral-50);
+  --color-jt-neutral-100: var(--jt-neutral-100);
+  --color-jt-neutral-200: var(--jt-neutral-200);
+  --color-jt-neutral-300: var(--jt-neutral-300);
+  --color-jt-neutral-400: var(--jt-neutral-400);
+  --color-jt-neutral-500: var(--jt-neutral-500);
+  --color-jt-neutral-600: var(--jt-neutral-600);
+  --color-jt-neutral-700: var(--jt-neutral-700);
+  --color-jt-neutral-800: var(--jt-neutral-800);
+  --color-jt-neutral-900: var(--jt-neutral-900);
+
+  --radius-jt-sm: 8px;
+  --radius-jt-md: 12px;
+  --radius-jt-lg: 18px;
+  --radius-jt-xl: 22px;
+  --radius-jt-2xl: 24px;
+  --radius-jt-3xl: 30px;
+  --radius-jt-pill: 9999px;
+
+  --shadow-jt-1: var(--jt-shadow-1);
+  --shadow-jt-2: var(--jt-shadow-2);
+  --shadow-jt-3: var(--jt-shadow-3);
+
+  --text-jt-display-2xl: 56px;
+  --text-jt-display-2xl--line-height: 1.02;
+  --text-jt-display-2xl--letter-spacing: -0.025em;
+  --text-jt-display-xl: 44px;
+  --text-jt-display-xl--line-height: 1.04;
+  --text-jt-display-xl--letter-spacing: -0.025em;
+  --text-jt-h1: 32px;
+  --text-jt-h1--line-height: 1.1;
+  --text-jt-h1--letter-spacing: -0.022em;
+  --text-jt-h2: 24px;
+  --text-jt-h2--line-height: 1.2;
+  --text-jt-h2--letter-spacing: -0.018em;
+  --text-jt-h3: 20px;
+  --text-jt-h3--line-height: 1.25;
+  --text-jt-h3--letter-spacing: -0.015em;
+  --text-jt-body-lg: 18px;
+  --text-jt-body-lg--line-height: 1.5;
+  --text-jt-body: 16px;
+  --text-jt-body--line-height: 1.5;
+  --text-jt-body-sm: 14px;
+  --text-jt-body-sm--line-height: 1.45;
+  --text-jt-caption: 12px;
+  --text-jt-caption--line-height: 1.4;
+  --text-jt-eyebrow: 11px;
+  --text-jt-eyebrow--line-height: 1.4;
+  --text-jt-eyebrow--letter-spacing: 0.14em;
+
+  --ease-jt-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+  background: var(--jt-bg);
+  color: var(--jt-ink);
+}
