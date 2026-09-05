@@ -57,10 +57,14 @@ function BrandStats({ stats }: { stats: Stats }) {
 
 const cardClass =
   "relative flex flex-1 flex-col items-center justify-center gap-6 overflow-hidden rounded-jt-3xl bg-jt-brand-50 px-6 py-12 text-center md:px-8 md:py-14 [&>*:not(svg)]:relative [&>*:not(svg)]:z-10";
-const ctaClass =
-  "inline-flex items-center rounded-jt-pill bg-jt-brand-500 px-7 py-3.5 font-bold text-jt-brand-ink transition duration-150 ease-jt-out hover:-translate-y-0.5 hover:bg-jt-brand-hover hover:shadow-jt-3";
-const storeClass =
-  "inline-flex items-center gap-2 rounded-jt-md bg-jt-neutral-900 px-4 py-2 text-left text-jt-body-sm font-semibold leading-tight text-white transition duration-150 hover:-translate-y-0.5 hover:shadow-jt-3";
+const webLinkClass = "text-jt-body-sm text-jt-ink-50 underline-offset-2 hover:text-jt-brand-700 hover:underline";
+
+const StoreLink = ({ href, icon, name, hint }: { href: string; icon: React.ReactNode; name: string; hint: string }) => (
+  <a href={href}
+    className="inline-flex items-center gap-2.5 rounded-jt-pill bg-jt-brand-500 px-5 py-2.5 text-left text-jt-body font-bold leading-tight text-jt-brand-ink transition duration-150 ease-jt-out hover:-translate-y-0.5 hover:bg-jt-brand-hover hover:shadow-jt-3">
+    {icon}<span>{name}<small className="block text-[11px] font-normal opacity-85">{hint}</small></span>
+  </a>
+);
 
 export default async function HomePage() {
   const stats = await getBrandStats();
@@ -108,16 +112,12 @@ export default async function HomePage() {
               La comunidad de tenis amateur más activa. Encontrá rivales de tu nivel, cargá tus partidos y escalá en el ranking.
             </p>
             {stats && <BrandStats stats={stats.tenis} />}
-            <div className="flex flex-col items-center gap-3.5">
-              <a href="https://www.jugatenis.com" className={ctaClass}>Ir a jugatenis.com</a>
+            <div className="flex flex-col items-center gap-3">
               <div className="flex flex-wrap justify-center gap-2.5">
-                <a href="https://apps.apple.com/app/id6756391352" className={storeClass}>
-                  <AppleIcon /><span>App Store<small className="block text-[11px] font-normal opacity-80">Descargala para iPhone</small></span>
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.jugatenis.app" className={storeClass}>
-                  <PlayIcon /><span>Google Play<small className="block text-[11px] font-normal opacity-80">Descargala para Android</small></span>
-                </a>
+                <StoreLink href="https://apps.apple.com/app/id6756391352" icon={<AppleIcon />} name="App Store" hint="Descargala para iPhone" />
+                <StoreLink href="https://play.google.com/store/apps/details?id=com.jugatenis.app" icon={<PlayIcon />} name="Google Play" hint="Descargala para Android" />
               </div>
+              <a href="https://www.jugatenis.com" className={webLinkClass}>o usala desde la web en jugatenis.com</a>
             </div>
           </section>
 
@@ -128,9 +128,10 @@ export default async function HomePage() {
               Ranking, encuentros y comunidad para el pádel amateur. Sumate desde cualquier dispositivo.
             </p>
             {stats && <BrandStats stats={stats.padel} />}
-            <div className="flex flex-col items-center gap-3.5">
-              <a href="https://www.jugapadel.app" className={ctaClass}>Ir a jugapadel.app</a>
-              <p className="text-jt-body-sm italic text-jt-ink-70">Apps para iPhone y Android, muy pronto.</p>
+            <div className="flex flex-col items-center gap-3">
+              <StoreLink href="https://apps.apple.com/app/id6799821373" icon={<AppleIcon />} name="App Store" hint="Descargala para iPhone" />
+              <p className="text-jt-body-sm italic text-jt-ink-70">La versión para Android estará disponible muy pronto.</p>
+              <a href="https://www.jugapadel.app" className={webLinkClass}>o usala desde la web en jugapadel.app</a>
             </div>
           </section>
         </div>
